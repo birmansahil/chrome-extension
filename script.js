@@ -4,9 +4,14 @@ const ulEl = document.querySelector("#ul-el");
 
 let myLeads = [];
 
+JSON.parse(localStorage.getItem("myLeads"));
+
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value);
     inputEl.value = "";
+
+    localStorage.setItem("myLeads", JSON.stringify(myLeads));
+
     renderLeads();
 });
 
